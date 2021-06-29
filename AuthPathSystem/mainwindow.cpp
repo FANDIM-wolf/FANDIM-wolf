@@ -6,8 +6,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    database = QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName("./ASP.db");
+    database=QSqlDatabase::addDatabase("QPSQL");
+    database.setHostName("localhost");
+    database.setDatabaseName("serverdb");
+    database.setPassword("root");
+    database.setUserName("postgres");
     if(database.open())
        {
         qDebug("open");
@@ -16,9 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
         qDebug("no open");
     }
     query = new QSqlQuery(database);
-    query->exec("CREATE TABLE IF NOT EXIST users(id INTEGER PRIMARY KEY NOT NULL ,name VARCHAR,password VARCHAR,phone INT);");
-}
 
+
+}
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -27,23 +30,12 @@ MainWindow::~MainWindow()
 //recive data and insert in db
 void MainWindow::on_pushButton_clicked()
 {
-
-
-    QString user = ui->lineEdit->text();
-    QString password = ui->lineEdit_2->text();
-    QString email = ui->lineEdit_3->text();
-    QString phone = ui->lineEdit_4->text();
-    QSqlQuery query;
-      query.prepare("INSERT INTO users (id, name,password,phone) "
-                  "VALUES (:id, :name, :password,phone)");
-      query.bindValue(":id", 1);
-      query.bindValue(":name", "Bart");
-      query.bindValue(":password", "Simpson");
-      query.bindValue(":phone",8900);
-      if (query.exec())
-      {
-          qDebug("exec");
-      }
-
+        database.open();
+        query = new QSqlQuery(database);
+      query->prepare("INSERT INTO users (name) "
+                  "VALUES (:name)");
+      query->bindValue(":name", "Bart");
+      query->exec();
+      database.close();
 }
 
