@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     database=QSqlDatabase::addDatabase("QPSQL");
     database.setHostName("localhost");
     database.setDatabaseName("serverdb");
+    database.setPort(5432);
     database.setPassword("root");
     database.setUserName("postgres");
     if(database.open())
@@ -32,9 +33,10 @@ void MainWindow::on_pushButton_clicked()
 {
         database.open();
         query = new QSqlQuery(database);
-      query->prepare("INSERT INTO users (name) "
-                  "VALUES (:name)");
-      query->bindValue(":name", "Bart");
+      query->prepare("INSERT INTO pocs (id,name) "
+                  "VALUES (:id,:name)");
+      query->bindValue(":id",1);
+      query->bindValue(":name", "Barts");
       query->exec();
       database.close();
 }
