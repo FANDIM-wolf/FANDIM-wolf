@@ -7,6 +7,8 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QString>
+#include <QTableView>
+#include <QSqlTableModel>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,9 +24,20 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_tableView_clicked(const QModelIndex &index);
+
+
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
     QSqlQuery *query ;
+    QSqlTableModel *model;
+
+    int row; //number of actived string in table
 };
 #endif // MAINWINDOW_H
