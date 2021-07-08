@@ -1,6 +1,6 @@
  #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "graphic.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -112,4 +112,12 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
 
 
 
+
+// open statistic
+void MainWindow::on_pushButton_4_clicked()
+{
+    Graphic graphic_stat;
+    graphic_stat.setModal(true);
+    graphic_stat.exec();
+}
 
