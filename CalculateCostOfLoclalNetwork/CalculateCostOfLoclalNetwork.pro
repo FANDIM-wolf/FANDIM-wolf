@@ -1,6 +1,6 @@
 QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     graphic.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     graphic.h \
-    mainwindow.h
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
     graphic.ui \

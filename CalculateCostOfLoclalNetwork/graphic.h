@@ -21,6 +21,9 @@ public:
     explicit Graphic(QWidget *parent = nullptr);
     ~Graphic();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Graphic *ui;
     QSqlDatabase database;
