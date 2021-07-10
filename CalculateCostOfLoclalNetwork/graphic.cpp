@@ -45,12 +45,24 @@ void Graphic::on_pushButton_clicked()
 
         //Process data for graphic
             int i=0;
-            for (double X=1; X<=20; X+=1)//Пробегаем по всем точкам
-            {
-                x[i] = X;
-                y[i] = X*X;//Формула нашей функции
-                i++;
+            x[0]=2020;
+
+            if(database.open())
+               {
+                qDebug("open");
             }
+            else{
+                qDebug("no open");
+            }
+            query = new QSqlQuery(database);
+
+            query->exec("SELECT name, price FROM visits WHERE price > 100");
+            while (query->next()) {
+                 QString name = query->value(0).toString();
+                 int salary = query->value(1).toInt();
+                  y[i]= salary;
+                  x[i]=1000+x[i];
+               }
 
         ui->widget->clearGraphs();//Если нужно, но очищаем все графики
         //Добавляем один график в widget
