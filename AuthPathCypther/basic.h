@@ -66,6 +66,14 @@ QString cypher_text(QString input_text_to_cypher_it){
                 'o' ){
                  input_text_to_cypher[i] = 'n';
             }
+            if(input_text_to_cypher_it[i] ==
+                'p' ){
+                 input_text_to_cypher[i] = 'o';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'q' ){
+                 input_text_to_cypher[i] = 'r';
+            }
 
 
     }
