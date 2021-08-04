@@ -74,6 +74,49 @@ QString cypher_text(QString input_text_to_cypher_it){
                 'q' ){
                  input_text_to_cypher[i] = 'r';
             }
+            if(input_text_to_cypher_it[i] ==
+                'r' ){
+                 input_text_to_cypher[i] = 'q';
+            }
+            if(input_text_to_cypher_it[i] ==
+                's' ){
+                 input_text_to_cypher[i] = 't';
+            }
+            if(input_text_to_cypher_it[i] ==
+                't' ){
+                 input_text_to_cypher[i] = 's';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'u' ){
+                 input_text_to_cypher[i] = 'v';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'v' ){
+                 input_text_to_cypher[i] = 'u';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'w' ){
+                 input_text_to_cypher[i] = 'y';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'x' ){
+                 input_text_to_cypher[i] = 'z';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'y' ){
+                 input_text_to_cypher[i] = 'w';
+            }
+            if(input_text_to_cypher_it[i] ==
+                'z' ){
+                 input_text_to_cypher[i] = 'x';
+            }
+
+
+
+
+
+
+
 
 
     }
