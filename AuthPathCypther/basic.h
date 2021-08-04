@@ -7,8 +7,13 @@ QString cypher_text(QString input_text_to_cypher_it){
  QString input_text_to_cypher;
     for(int i = 0; i< input_text_to_cypher_it.length() ; i++){
             if(input_text_to_cypher_it[i] ==
-                'a' ){
-                 input_text_to_cypher[i] = 'c';
+                'a' || 'A' ){
+
+                 if(input_text_to_cypher_it == 'A'){
+                     input_text_to_cypher[i] = 'C';
+                 }else{
+                     input_text_to_cypher[i] = 'c';
+                 }
             }
             if(input_text_to_cypher_it[i] ==
                 'b' ){
@@ -126,7 +131,119 @@ QString cypher_text(QString input_text_to_cypher_it){
 //uncypher function
 
 QString uncypher_text(QString input_text_to_uncypher_it){
+    QString input_text_to_uncypher;
+       for(int i = 0; i< input_text_to_uncypher_it.length() ; i++){
+               if(input_text_to_uncypher_it[i] ==
+                   'c' ){
+                    input_text_to_uncypher[i] = 'a';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   '+' ){
+                    input_text_to_uncypher[i] = 'b';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'a' ){
+                    input_text_to_uncypher[i] = 'c';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'e' ){
+                    input_text_to_uncypher[i] = 'd';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'd' ){
+                    input_text_to_uncypher[i] = 'e';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'g' ){
+                    input_text_to_uncypher[i] = 'f';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'f' ){
+                    input_text_to_uncypher[i] = 'g';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'j' ){
+                    input_text_to_uncypher[i] = 'h';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'k' ){
+                    input_text_to_uncypher[i] = 'i';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'h' ){
+                    input_text_to_uncypher[i] = 'j';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'i' ){
+                    input_text_to_uncypher[i] = 'k';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'm' ){
+                    input_text_to_uncypher[i] = 'l';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'l' ){
+                    input_text_to_uncypher[i] = 'm';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'p' ){
+                    input_text_to_uncypher[i] = 'n';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'n' ){
+                    input_text_to_uncypher[i] = 'o';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'o' ){
+                    input_text_to_uncypher[i] = 'p';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'r' ){
+                    input_text_to_uncypher[i] = 'q';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'q' ){
+                    input_text_to_uncypher[i] = 'r';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   't' ){
+                    input_text_to_uncypher[i] = 's';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   's' ){
+                    input_text_to_uncypher[i] = 't';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'v' ){
+                    input_text_to_uncypher[i] = 'u';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'u' ){
+                    input_text_to_uncypher[i] = 'v';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'y' ){
+                    input_text_to_uncypher[i] = 'w';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'z' ){
+                    input_text_to_uncypher[i] = 'x';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'w' ){
+                    input_text_to_uncypher[i] = 'y';
+               }
+               if(input_text_to_uncypher_it[i] ==
+                   'x' ){
+                    input_text_to_uncypher[i] = 'z';
+               }
 
 
-    return input_text_to_uncypher_it;
+
+
+
+
+       }
+
+    return input_text_to_uncypher;
 }
