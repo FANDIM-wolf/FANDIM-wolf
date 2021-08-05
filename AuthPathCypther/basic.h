@@ -7,21 +7,37 @@ QString cypher_text(QString input_text_to_cypher_it){
  QString input_text_to_cypher;
     for(int i = 0; i< input_text_to_cypher_it.length() ; i++){
             if(input_text_to_cypher_it[i] ==
-                'a' || 'A' ){
+                'a' || input_text_to_cypher_it[i] == 'A' ){
 
-                 if(input_text_to_cypher_it == 'A'){
+                 if(input_text_to_cypher_it[i] == 'A'){
                      input_text_to_cypher[i] = 'C';
-                 }else{
+                 }
+                 else if (input_text_to_cypher_it[i]=='a') {
                      input_text_to_cypher[i] = 'c';
+                 }
+                 else{
+                     //error
+                     input_text_to_cypher[i] = 'e'+'+'+'-';
                  }
             }
             if(input_text_to_cypher_it[i] ==
-                'b' ){
+                'b' || input_text_to_cypher_it[i] == 'B'){
                  input_text_to_cypher[i] = '+';
             }
             if(input_text_to_cypher_it[i] ==
-                'c' ){
+                'c' || input_text_to_cypher_it[i] == 'C' ){
+
+                if(input_text_to_cypher_it[i]=='C'){
+
+                    input_text_to_cypher[i]= 'A';
+
+                }else if(input_text_to_cypher_it[i]=='c'){
                  input_text_to_cypher[i] = 'a';
+                }
+                else{
+                    //error
+                    input_text_to_cypher[i] = 'e'+'+'+'-';
+                }
             }
             if(input_text_to_cypher_it[i] ==
                 'd' ){
