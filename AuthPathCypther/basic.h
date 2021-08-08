@@ -40,20 +40,58 @@ QString cypher_text(QString input_text_to_cypher_it){
                 }
             }
             if(input_text_to_cypher_it[i] ==
-                'd' ){
+                'd' || input_text_to_cypher_it[i] == 'D' ){
+                if(input_text_to_cypher_it[i]=='D'){
+                    input_text_to_cypher[i] = 'E';
+                }
+                else if(input_text_to_cypher_it['i']=='e'){
                  input_text_to_cypher[i] = 'e';
+                }
+                else{
+                  //error
+                  input_text_to_cypher[i] = 'e'+'+'+'-';
+                }
             }
             if(input_text_to_cypher_it[i] ==
-                'e' ){
-                 input_text_to_cypher[i] = 'd';
+                'e' || input_text_to_cypher_it[i] == 'E'){
+                if(input_text_to_cypher_it[i] == 'E'){
+                    input_text_to_cypher[i] = 'D';
+                }
+                else if(input_text_to_cypher_it[i] == 'e'){
+                    input_text_to_cypher[i] = 'd';
+                }
+                else{
+                    //error
+                    input_text_to_cypher[i] = 'e'+'+'+'-';
+                }
+
             }
             if(input_text_to_cypher_it[i] ==
-                'f' ){
-                 input_text_to_cypher[i] = 'g';
+                'f' || input_text_to_cypher_it[i] == 'F' ){
+                if(input_text_to_cypher_it[i] == 'F'){
+                    input_text_to_cypher[i] = 'G';
+                }
+                else if(input_text_to_cypher_it[i] == 'f'){
+                    input_text_to_cypher[i] = 'g';
+                }
+                else{
+                    //error
+                    input_text_to_cypher[i] = 'e'+'+'+'-';
+                }
             }
             if(input_text_to_cypher_it[i] ==
-                'g' ){
-                 input_text_to_cypher[i] = 'f';
+                'g' || input_text_to_cypher_it[i] =='G' ){
+                if(input_text_to_cypher_it[i] == 'G'){
+                    input_text_to_cypher[i]='F';
+                }
+                else if(input_text_to_cypher_it[i] == 'g'){
+                    input_text_to_cypher[i]='f';
+                }
+                else{
+                    //error
+                    input_text_to_cypher[i] = 'e'+'+'+'-';
+                }
+
             }
             if(input_text_to_cypher_it[i] ==
                 'h' ){
