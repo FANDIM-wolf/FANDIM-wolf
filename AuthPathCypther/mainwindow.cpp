@@ -26,7 +26,7 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
-
+//uncypher function
 void MainWindow::on_pushButton_2_clicked()
 {
         //get data
@@ -35,9 +35,6 @@ void MainWindow::on_pushButton_2_clicked()
         uncypher_text(input);
         //show result
         ui->textEdit_2->setText(uncypher_text(input));
-
-
-
 
 }
 
