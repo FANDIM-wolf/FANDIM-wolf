@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>API_BlessedSoft</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SQLite.CodeFirst" Version="1.7.0.34" />
+    <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.114.3" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.3" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.114" />
+    <PackageReference Include="System.Data.SQLite.EF6.Migrations" Version="1.0.112" />
+  </ItemGroup>
+
+</Project>
