@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<h1>Notes</h1>
+<div th:each="el: ${posts}">
+  <h1 th:text="${el.title}" />
+</div>
+</body>
+</html>
