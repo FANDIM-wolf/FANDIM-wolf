@@ -1,9 +1,37 @@
 
 import './App.css';
+import {useState , useEffect} from 'react'
+import Form from './Form';
 
-
-
-
+function Component() {
+  const [item , setItem] = useState([]);
+  useEffect(()=>{
+      fetch("http://127.0.0.1/admin/api.php")
+          .then(res => res.json())
+          .then(
+              (result) => {
+                  setItem(result);
+              }
+          )
+  },[])
+  return (
+    <div >
+      <header >
+        
+        <h3>
+         List of data 
+        </h3>
+        
+            {item.map(
+                item => (
+                 <p> {item.name}</p>
+                )
+            )}
+        
+      </header>
+    </div>
+  );
+}
 
 // link with props 
 function Link(props)
@@ -24,12 +52,12 @@ function Header() {
         <p>
          Header
         </p>
-
+        <Component />
         <Link link_name="Link name" link="https://www.google.com" />
         <a
          
         >
-          
+         <Form/> 
         </a>
       </header>
     </div>

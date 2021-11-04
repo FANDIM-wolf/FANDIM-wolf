@@ -2,7 +2,7 @@
 import './App.css';
 import {useState } from 'react';
 import React from 'react';
-
+import NameForm from './PostForm';
 
 
   function MyForm() {
@@ -55,7 +55,7 @@ import React from 'react';
             onClick={this.changeColor}
           >Change color</button>
 
-        <MyForm />
+        <NameForm />
         </div>
       );
     }
