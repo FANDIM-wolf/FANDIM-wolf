@@ -1,45 +1,63 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 
 class Form extends Component{
     constructor(props){
         super(props);
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangeSubmit = this.onChangeSubmit.bind(this);
         this.state = {
-            username:''
+            name :'',
+            email:'',
         }
     }
 
-    submitHandler = async (event) => {
-        event.preventDefault();
-        console.log(this.state.username);
-        const data = this.state.username;
-        
-         fetch("http://127.0.0.1/admin/get_api.php",{
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                'name': data,
-            }), 
-        }).then((res)=>console.log(res));
+    onChangeName(e){
+        this.setState({
+            name:e.target.value
+        });
 
     }
 
-    render(){
-        return(
-            <div className="form">
-                <form method="POST" onSubmit={this.submitHandler}>
-                    <input type="text" placeholder="name" name="name" onChange={(event)=>{
-                        this.setState({
-                            username:event.target.value
-                        });
-                    }} value={this.state.username} />
-                    <input type="submit" value="click" name="submit" />
-                </form>
-            </div>
-        );
+    onChangeEmail(e){
+        this.setState({
+            email:e.target.value
+        });
     }
+    onChangeSubmit(e)
+    {
+        e.preventDefault();
+        const obj = {
+            name : this.state.name ,
+            email: this.state.email
+        };
+        console.log(obj);
+        axios.post('http://localhost/admin/post_api.php',obj).then(res=> console.log(res.data));
 
+    }
+        render(){
+            return(
+                <div>
+                    <p>Insert</p>
+                    <form onClick={this.onChangeSubmit}>
+                        <div>
+                    <p>Name</p>
+                    <input type="text"  name="name" onChange={this.onChangeName} placeholder="Informe seu login" />
+                        </div>
+
+                        <div>
+                    <p>Email</p>
+                    <input type="text"   name="email"  onChange={this.onChangeEmail}/>
+                        </div> 
+
+                        <div>
+                    <input type="submit" value="Register User" />
+                        </div>
+                    </form>
+                </div>
+            )
+        }
 }
 
 export default Form;
