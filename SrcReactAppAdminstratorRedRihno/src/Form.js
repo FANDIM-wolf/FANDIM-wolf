@@ -40,7 +40,7 @@ class Form extends Component{
             return(
                 <div>
                     <p>Insert</p>
-                    <form onClick={this.onChangeSubmit}>
+                    <form onSubmit={this.onChangeSubmit}>
                         <div>
                     <p>Name</p>
                     <input type="text"  name="name" onChange={this.onChangeName} placeholder="Informe seu login" />

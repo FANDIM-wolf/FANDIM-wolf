@@ -2,6 +2,7 @@
 import './App.css';
 import {useState , useEffect} from 'react'
 import Form from './Form';
+import Users from './Users';
 
 function Component() {
   const [item , setItem] = useState([]);
@@ -53,11 +54,13 @@ function Header() {
          Header
         </p>
         <Component />
-        <Link link_name="Link name" link="https://www.google.com" />
+        
         <a
          
         >
          <Form/> 
+
+         <Users/>
         </a>
       </header>
     </div>
