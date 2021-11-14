@@ -28,7 +28,7 @@ private:
     Ui::adduserdialog *ui;
     QSqlDatabase db;
     QSqlQuery *query ;
-    QSqlTableModel *model;
+    QSqlTableModel *modal;
 };
 
 #endif // ADDUSERDIALOG_H

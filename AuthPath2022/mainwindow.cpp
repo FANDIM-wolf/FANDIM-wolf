@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 
@@ -38,5 +39,32 @@ void MainWindow::on_pushButton_clicked()
 
 
 
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("127.0.0.1");
+    db.setUserName("root");
+    db.setPassword("");
+    db.setDatabaseName("home");
+    if(db.open())
+           {
+            qDebug("open");
+    }
+        else{
+            qDebug("no open");
+        }
+    // get model
+    modal = new QSqlTableModel(this,db);
+    QSqlQuery* query = new QSqlQuery(db);
+    QSqlQueryModel * modal = new QSqlQueryModel();
+    query->prepare("select * from employees");
+    query->exec();
+    modal->setQuery(*query);
+    ui->tableView->setModel(modal);
+
+    db.close();
 }
 
