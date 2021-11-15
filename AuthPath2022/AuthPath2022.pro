@@ -10,15 +10,18 @@ CONFIG += c++11
 
 SOURCES += \
     adduserdialog.cpp \
+    delete_user_dialog.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     adduserdialog.h \
+    delete_user_dialog.h \
     mainwindow.h
 
 FORMS += \
     adduserdialog.ui \
+    delete_user_dialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

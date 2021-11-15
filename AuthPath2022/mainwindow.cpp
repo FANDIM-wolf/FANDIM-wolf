@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "adduserdialog.h"
+#include "delete_user_dialog.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -66,5 +67,14 @@ void MainWindow::on_pushButton_2_clicked()
     ui->tableView->setModel(modal);
 
     db.close();
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    qDebug("open");
+    Delete_user_dialog adduser_window;
+    adduser_window.setModal(false);
+    adduser_window.exec();
 }
 
