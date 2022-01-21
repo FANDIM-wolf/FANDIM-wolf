@@ -1,0 +1,289 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+    </head>
+    <body>
+        <style>
+            h2{
+                font-family: Arial;
+                color:orange;
+            }
+            h1{
+                font-family: Arial;
+            }
+        </style>    
+        <div>
+
+        <canvas id="myChart"></canvas>
+        <h1 id="r"></h1>
+        <h2 id="result"></h2>
+        <button onclick="remove()">Delete</button>
+        <button onclick="remove_two()">Delete second one</button>
+        <canvas id="SecondChart"></canvas>
+        <canvas id="ThirdChart"></canvas>
+
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        
+
+
+        var json = `
+        [ 
+
+    {"name":"ACTIVO" , "revenue":12287.4 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":2275.44 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":10689 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5682.61 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":7728.68 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4964.7 , "date":"01.06.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":6153.24 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":3899.84 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":8590.8 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9765.48 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9738.92 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":13770.22 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":13734.5 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9060.37 , "date":"01.06.2021  0:00:00"},
+    {"name":"ACTIVO" , "revenue":2791.43 , "date":"01.11.2021  0:00:00"},
+    {"name":"ACTIVO" , "revenue":11588.3 , "date":"01.07.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":3110.79 , "date":"01.08.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":8533.64 , "date":"01.09.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":6393.6 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":2047.79 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9889.8 , "date":"01.06.2021  0:00:00"},
+    {"name":"ACTIVO" , "revenue":2912.5 , "date":"01.11.2021  0:00:00"},
+    {"name":"ACTIVO" , "revenue":2948.98 , "date":"01.07.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":3586.81 , "date":"01.08.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":10313.78 , "date":"01.09.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":8351 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5976.05 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":7038.9 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":8978.72 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":3592.8 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":7120.88 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9224.1 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4023.96 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":15297.56 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":2035.4 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9873.82 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":2181.22 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5047.88 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":17102.84 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":11028.34 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4074.73 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":11488.2 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":3440.1 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4698.19 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9901.31 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":9024.71 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":6248.4 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4953.24 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4138.87 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":14386.25 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5231.56 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":7184.52 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":4938.7 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":12903.86 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5752.54 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":6737.01 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":10941.48 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":11575.32 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":7206.49 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5441.64 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":8410.62 , "date":"01.11.2021 0:00:00"},
+    {"name":"ACTIVO" , "revenue":5991.04 , "date":"01.11.2021 0:00:00"},
+    {"name":"ECOMATRIS" , "revenue":768.92 , "date":"01.11.2021 0:00:00"},
+    {"name":"EvaBond" , "revenue":330.6 , "date":"01.11.2021 0:00:00"},
+    {"name":"IZARE" , "revenue":1997.4 , "date":"01.11.2021 0:00:00"},
+    {"name":"IZARE" , "revenue":383.04 , "date":"01.11.2021 0:00:00"}
+    
+    
+    
+        ]
+         `;
+
+  
+
+         var json_test = `
+            [
+            {"name":"di" , "revenue":323},
+            {"name":"dis" , "revenue":103},
+            {"name":"dia" , "revenue":100},
+            {"name":"did" , "revenue":100}
+
+            ]
+          
+          `;
+
+          var array_of_names  = [];
+          var result_of_month ;
+ function summ_of_array(array){
+     let result_sum = 0;
+     for(var i = 0 ; i< array.length; i++){
+         result_sum += array[i];
+     }
+     return result_sum;
+ }         
+
+ function create_array_of_revenues(){
+     array_of_revenues = []
+     for(j=0; j<=100;j++){
+         array_of_revenues[j] = 0;
+     }
+     return array_of_revenues;
+
+ }         
+
+  async function Process_data_revenue(){
+
+          let array_of_revenues = create_array_of_revenues();
+          var result = JSON.parse(json);
+
+          temp = result[0].name ;
+          count = 0;
+          //var array_of_revenues = [0];
+        
+          //get list of names 
+          for(var i = 0 ; i< result.length; i++){
+             if(result[i].name ==  temp){
+                array_of_names[count] = result[i].name;
+                array_of_revenues[count] += result[i].revenue;
+                console.log("Name:" , array_of_names[count]);
+                console.log("Revenue:" , array_of_revenues[count]);
+             }
+             else{
+                count++;
+                temp = result[i].name; 
+                array_of_names[count] = result[i].name;
+                array_of_revenues[count] += result[i].revenue;
+                console.log("Name:" , array_of_names[count]);
+                console.log("Revenue:" , array_of_revenues[count]);
+             }
+          } 
+
+          
+          array_of_revenues[2] = 3123125;
+          array = [23,32,40,23,23,23]
+          
+          //get result per month 
+
+          result_of_month = summ_of_array(array_of_revenues);
+         
+        }
+
+function Create_chart(){
+    const data = {
+  labels: array_of_names, 
+  
+  datasets: [{
+    type: 'bar',
+    label: 'Bar Dataset',
+    data: array_of_revenues,
+    borderColor: 'rgb(255, 144, 0)',
+    backgroundColor: 'rgba(255, 144, 0 , 0.2 )'
+  }, {
+    type: 'line',
+    label: 'Line Dataset',
+    data: array_of_revenues,
+    fill: false,
+    borderColor: 'rgb(0, 0, 0)'
+  }]
+};;
+
+const config = {
+  type: 'scatter',
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    layout: {
+            padding: 120
+    }
+  }
+};
+
+window.myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+  document.getElementById("r").innerHTML= "Выручка за месяц";
+  document.getElementById("result").innerHTML = result_of_month+" "+"RUB";
+}        
+
+setTimeout(Create_chart,5000);        
+Process_data_revenue();
+
+//delete chart and clear content of DOM.
+function remove(){
+    if (window.myChart != null){
+    window.myChart.destroy();
+    document.getElementById("r").innerHTML= " ";
+    document.getElementById("result").innerHTML = " ";
+  }
+
+}
+
+function remove_two(){
+    if (window.myChart_two != null){
+    window.myChart_two.destroy();
+    document.getElementById("r").innerHTML= " ";
+    document.getElementById("result").innerHTML = " ";
+  }
+
+}
+
+
+function second_one(){
+    const data = {
+  labels: array_of_names, 
+  
+  datasets: [{
+    type: 'bar',
+    label: 'Bar Dataset',
+    data: array_of_revenues,
+    borderColor: 'rgb(255, 144, 0)',
+    backgroundColor: 'rgba(255, 144, 0 , 0.2 )'
+  }, {
+    type: 'line',
+    label: 'Line Dataset',
+    data: array_of_revenues,
+    fill: false,
+    borderColor: 'rgb(0, 0, 0)'
+  }]
+};;
+
+const config = {
+  type: 'scatter',
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    layout: {
+            padding: 120
+    }
+  }
+};
+
+window.myChart_two = new Chart(
+    document.getElementById('SecondChart'),
+    config
+  );
+  document.getElementById("r").innerHTML= "Выручка за месяц";
+  document.getElementById("result").innerHTML = result_of_month+" "+"RUB";
+}
+
+setTimeout(second_one,10000)
+
+
+
+        </script>
+    </body>
+</html>
